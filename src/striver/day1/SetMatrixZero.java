@@ -24,7 +24,7 @@ public class SetMatrixZero {
                     if (matrix[i][0] == 0 || matrix[0][j] == 0)
                         matrix[i][j] = 0;
                 //if col0 set assigned to zero
-                //java everything passed by reference so automatically get changed u don't need to return anything
+                //java everything passed by reference so automatically get changed u don't need to return anyinnthing
                 if (col0 == 0) matrix[i][0] = 0;
             }
         }

@@ -2,22 +2,37 @@ package striver.day1;
 
 import java.util.ArrayList;
 import java.util.List;
+// Print Pascal's Triangle in Java
+import java.io.*;
+class PascalTriangle{
 
-public class PascalTriangle {
-        public List<List<Integer>> generate(int numRows) {
-            List<List<Integer>> res = new ArrayList<List<Integer>>();
-            List<Integer> row, pre = null;
-            for (int i = 0; i < numRows; ++i) {
-                row = new ArrayList<Integer>();
-                for (int j = 0; j <= i; ++j)
-                    if (j == 0 || j == i)
-                        row.add(1);
-                    else
-                        row.add(pre.get(j - 1) + pre.get(j));
-                pre = row;
-                res.add(row);
+    // Pascal function
+    public static void printPascal(int n)
+    {
+        for (int line = 1; line <= n; line++) {
+            for (int j = 0; j <= n - line; j++) {
+
+                // for left spacing
+                System.out.print(" ");
             }
-            return res;
+
+            // used to represent C(line, i)
+            int C = 1;
+            for (int i = 1; i <= line; i++) {
+
+                // The first value in a line is always 1
+                System.out.print(C + " ");
+                C = C * (line - i) / i;
+            }
+            System.out.println();
         }
     }
+
+    // Driver code
+    public static void main(String[] args)
+    {
+        int n = 5;
+        printPascal(n);
+    }
+}
 
